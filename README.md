@@ -25,8 +25,6 @@ python manage.py migrate
 4.How to run the application. from the current directory run the code from bash
 
 python manage.py runserver
-Link to Visit
-1.To visit http://127.0.0.1:8000/admin 2.To look the http://127.0.0.1:8000/
 
 Models
 Admin
