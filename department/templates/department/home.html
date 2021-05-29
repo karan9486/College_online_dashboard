@@ -1,0 +1,74 @@
+
+{% extends './homelayout.html' %} 
+{% load static %} 
+
+{% block title %}
+{{ tittle }}
+{% endblock title %}
+{% block nav-home %}<a class="active" href="{% url 'department' %}">HOME</a>{% endblock %}
+{% block depname %}
+{{ tittle }}
+{% endblock depname %}
+{% block notification_content %}
+<marquee  direction="up" height="100%">
+  <ul style="color:blanchedalmond;">
+  {%for list in notification_list%}
+      <li ><b><a href="http://collegedashboard.herokuapp.com/noti/{{list.attachements}}"> <p>{{list.summary}} </p> </a></b> </li>
+  {%endfor%}
+  
+  </ul>
+  </marquee>
+{% endblock notification_content %}
+{% block topper1 %}
+{%for list in csetoppers%}
+<b><p>{{list.rank1}} </p> </b>
+{%endfor%}
+{% endblock topper1 %}
+{% block topper2 %}
+{%for list in csetoppers%}
+<b><p>{{list.rank2}} </p> </b>
+{%endfor%}
+{% endblock topper2 %}
+{% block topper3 %}
+{%for list in csetoppers%}
+<b><p>{{list.rank3}} </p> </b>
+{%endfor%}
+
+{% endblock topper3 %}
+
+{% block virtual1%}
+
+
+<div style="width: 50%;margin: 20px; background-color: #f1f1f1;" >
+  <canvas id="pie-chart"></canvas>
+  <h3 style="text-align: center;">Department Strength</h3>
+</div>
+  <script>
+    var config = {
+      type: 'pie',
+      data: {
+        datasets: [{
+          data: {{data1|safe }},
+          backgroundColor: ['red', 'green', 'blue'],
+        }],
+        labels: {{ labels1|safe }}
+      },
+      options: {
+        responsive: true
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('pie-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+    
+
+  </script>
+{% endblock virtual1%}
+
+{% block depy2 %}{{second_s}}{% endblock depy2 %}
+{% block depy3 %}{{thirt_s}}{% endblock depy3 %}
+{% block depy4 %}{{final_s}}{% endblock depy4 %}
+
+
