@@ -26,7 +26,7 @@ python manage.py migrate
 
 python manage.py runserver
 Link to Visit
-1.To visit Admin and staff login 2.To look the dashboard
+1.To visit http://127.0.0.1:8000/admin 2.To look the http://127.0.0.1:8000/
 
 Models
 Admin
